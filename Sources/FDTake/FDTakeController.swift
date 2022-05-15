@@ -255,6 +255,7 @@ open class FDTakeController: NSObject {
                     }
                     let topVC = self.topViewController(rootViewController: self.presentingViewController)
                     
+
                         // On iPad use pop-overs.
                         self.imagePicker.modalPresentationStyle = .popover
                         self.imagePicker.popoverPresentationController?.sourceRect = popOverPresentRect
@@ -309,7 +310,7 @@ extension FDTakeController : UIImagePickerControllerDelegate, UINavigationContro
                 return
             }
             self.didGetPhoto?(imageToSave, info)
-            if UI_USER_INTERFACE_IDIOM() == .pad {
+            if UIDevice.current.userInterfaceIdiom == .pad {
                 self.imagePicker.dismiss(animated: true)
             }
         case kUTTypeMovie:
