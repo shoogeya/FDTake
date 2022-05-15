@@ -255,14 +255,11 @@ open class FDTakeController: NSObject {
                     }
                     let topVC = self.topViewController(rootViewController: self.presentingViewController)
                     
-//                    if UI_USER_INTERFACE_IDIOM() == .phone || (source == .camera && self.iPadUsesFullScreenCamera) {
-//                        topVC.present(self.imagePicker, animated: true, completion: nil)
-//                    } else {
                         // On iPad use pop-overs.
                         self.imagePicker.modalPresentationStyle = .popover
                         self.imagePicker.popoverPresentationController?.sourceRect = popOverPresentRect
                         topVC.present(self.imagePicker, animated: true, completion: nil)
-                    //}
+          
                 }
                
             }
