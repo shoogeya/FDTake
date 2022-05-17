@@ -33,19 +33,19 @@ enum FDTakeControllerLocalizableStrings: String {
     var defaultLocalizedString: String {
        switch self {
         case .cancel:
-            return "Cancel"
+            return "🛑"
         case .chooseFromLibrary:
-            return "Choose From Library"
+            return "📕"
         case .chooseFromPhotoRoll:
-            return "Choose From PhotoRoll"
+            return "📒"
         case .noSources:
-            return "no Sources"
+            return "📵"
         case .takePhoto:
-            return "Take Photo"
+            return "📷"
         case .takeVideo:
-            return "Take Video"
+            return "🎥"
        case .lastTakenMedia:
-            return "Last Taken Media"
+            return "📷"
         }
     }
     

@@ -4,7 +4,6 @@
 //
 //  Copyright © 2015 William Entriken. All rights reserved.
 //
-
 import Foundation
 import MobileCoreServices
 import UIKit
@@ -14,7 +13,6 @@ import Photos
 open class FDTakeController: NSObject {
 
     // MARK: - Initializers & Class Convenience Methods
-
     /// Convenience method for getting a photo
     open class func getPhotoWithCallback(getPhotoWithCallback callback: @escaping (_ photo: UIImage, _ info: [AnyHashable: Any]) -> Void) {
         let fdTake = FDTakeController()
@@ -33,7 +31,6 @@ open class FDTakeController: NSObject {
 
 
     // MARK: - Configuration options
-
     /// Whether to allow selecting a photo
     open var allowsPhoto = true
 
@@ -74,7 +71,6 @@ open class FDTakeController: NSObject {
 
 
     // MARK: - Callbacks
-
     /// A photo was selected
     open var didGetPhoto: ((_ photo: UIImage, _ info: [AnyHashable: Any]) -> Void)?
 
@@ -119,7 +115,6 @@ open class FDTakeController: NSObject {
 
 
     // MARK: - Private
-
     private lazy var imagePicker: UIImagePickerController = {
         [unowned self] in
         let retval = UIImagePickerController()
@@ -158,7 +153,6 @@ open class FDTakeController: NSObject {
         return asset
     }
     // MARK: - Localization
-
     private func localizedString(for string: FDTakeControllerLocalizableStrings) -> String {
         let bundleLocalization = string.localizedString
         
@@ -197,7 +191,7 @@ open class FDTakeController: NSObject {
         if self.allowsSelectFromLibrary {
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 titleToSource.append((buttonTitle: .chooseFromLibrary, source: .photoLibrary))
-               // titleToSource.append((buttonTitle: .lastTakenMedia, source: .photoLibrary))
+                titleToSource.append((buttonTitle: .lastTakenMedia, source: .photoLibrary))
             } else if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
                 titleToSource.append((buttonTitle: .chooseFromPhotoRoll, source: .savedPhotosAlbum))
             }
@@ -255,12 +249,14 @@ open class FDTakeController: NSObject {
                     }
                     let topVC = self.topViewController(rootViewController: self.presentingViewController)
                     
-
+                    if UIDevice.current.userInterfaceIdiom == .phone || (source == .camera && self.iPadUsesFullScreenCamera) {
+                        topVC.present(self.imagePicker, animated: true, completion: nil)
+                    } else {
                         // On iPad use pop-overs.
                         self.imagePicker.modalPresentationStyle = .popover
                         self.imagePicker.popoverPresentationController?.sourceRect = popOverPresentRect
                         topVC.present(self.imagePicker, animated: true, completion: nil)
-          
+                    }
                 }
                
             }
@@ -329,4 +325,3 @@ extension FDTakeController : UIImagePickerControllerDelegate, UINavigationContro
         self.didDeny?()
     }
 }
-
