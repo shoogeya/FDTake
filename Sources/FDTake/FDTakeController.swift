@@ -197,7 +197,7 @@ open class FDTakeController: NSObject {
         if self.allowsSelectFromLibrary {
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 titleToSource.append((buttonTitle: .chooseFromLibrary, source: .photoLibrary))
-                titleToSource.append((buttonTitle: .takePhoto, source: .camera))
+               // titleToSource.append((buttonTitle: .lastTakenMedia, source: .photoLibrary))
             } else if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
                 titleToSource.append((buttonTitle: .chooseFromPhotoRoll, source: .savedPhotosAlbum))
             }

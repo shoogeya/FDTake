@@ -45,7 +45,7 @@ enum FDTakeControllerLocalizableStrings: String {
         case .takeVideo:
             return "Take Video"
        case .lastTakenMedia:
-            return "Take Photo"
+            return "Last Taken Media"
         }
     }
     
