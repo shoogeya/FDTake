@@ -154,7 +154,9 @@ open class FDTakeController: NSObject {
     }
     // MARK: - Localization
     private func localizedString(for string: FDTakeControllerLocalizableStrings) -> String {
-        let bundleLocalization = string.localizedString
+        //let bundleLocalization = string.localizedString
+        let bundle = Bundle(for: type(of: self))
+        let bundleLocalization = bundle.localizedString(forKey: string.rawValue, value: nil, table: nil)
         
         switch string {
         case .cancel:

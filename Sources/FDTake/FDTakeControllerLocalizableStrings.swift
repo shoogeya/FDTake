@@ -49,14 +49,14 @@ enum FDTakeControllerLocalizableStrings: String {
         }
     }
     
-    var localizedString: String {
-        let bundle = Bundle.resources ?? Bundle.main
-        return bundle.localizedString(
-            forKey: rawValue,
-            value: defaultLocalizedString,
-            table: nil
-        )
-    }
+//    var localizedString: String {
+//        let bundle = Bundle.resources ?? Bundle.main
+//        return bundle.localizedString(
+//            forKey: rawValue,
+//            value: defaultLocalizedString,
+//            table: nil
+//        )
+//    }
     
     func comment() -> String {
         switch self {
