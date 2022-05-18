@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/FDTake/**/*.swift'
   s.resource_bundles = {
     'Resources' => [
-      'Sources/FDTake/Resources/*.lproj'
+      'Sources/FDTake/Resources/*.lproj','Sources/FDTake/Resources/*.lproj/*.string'
     ]
 }
 end
