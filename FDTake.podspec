@@ -16,8 +16,6 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.source_files = 'Sources/FDTake/**/*.swift'
   s.resource_bundles = {
-    'Resources' => [
-      'Sources/FDTake/Resources/*.lproj','Sources/FDTake/Resources/*.lproj/*.string'
-    ]
-}
+    'Resources' => ['Resources/Resources/**/*.{xib,xcassets,json,imageset,bundle,strings,storyboard}','LocationPicker/View/*.{lproj,storybard}']
+  }
 end
